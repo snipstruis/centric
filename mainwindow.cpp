@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "network.h"
+#include <stdexcept>
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -40,15 +41,24 @@ void MainWindow::fillbox(){
 
 //execute the algorithm and continue the program
 void MainWindow::algorithm(){
-	ServerConnection server("http://vanriel.eu/devcare/o.php");
-	auto v = parsejson(server.httpGet());
 
-	vaste_nodes no;
-	no.a = v.second[0];
-	no.b = v.second[1];
-	no.c = v.second[2];
+	try{
+		ServerConnection server("http://vanriel.eu/devcare/o.php");
 
-	out = alg.bereken(no, v.first);
+		auto v = parsejson(server.httpGet());
+
+		vaste_nodes no;
+		no.a = v.second[0];
+		no.b = v.second[1];
+		no.c = v.second[2];
+
+		out = alg.bereken(no, v.first);
+	}
+	catch(const std::runtime_error e){
+		cerr<<"exception: "<<e.what()<<endl;
+		exit(-1);
+	}
+
 
 	fillbox();
 	fillpic();
