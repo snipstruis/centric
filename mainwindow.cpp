@@ -45,7 +45,7 @@ void MainWindow::algorithm(){
 	try{
         ServerConnection server("http://vanriel.eu/devcare/dummy.php");
 
-		auto v = parsejson(server.httpGet());
+        auto v = parsejson(server.httpGet());
 
 		vaste_nodes no;
 		no.a = v.second[0];
@@ -53,10 +53,12 @@ void MainWindow::algorithm(){
 		no.c = v.second[2];
 
 		out = alg.bereken(no, v.first);
+
+        kamer.setError(true);
 	}
 	catch(const std::runtime_error e){
 		cerr<<"exception: "<<e.what()<<endl;
-		exit(-1);
+        kamer.setError(true);
 	}
 
 
