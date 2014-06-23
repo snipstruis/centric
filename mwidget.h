@@ -13,6 +13,7 @@ public:
    mwidget(){}
    void setcor(QString (&)[128][3]);
    void setnodes(int);
+   void setError(bool);
    void selectnode(QString);
 
 private:
@@ -20,6 +21,7 @@ private:
    QString cor[128][3],
 		   naam;
    int nodes;
+   bool err;
 
 protected:
 	void paintEvent(QPaintEvent *event);
