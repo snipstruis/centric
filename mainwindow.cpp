@@ -43,7 +43,7 @@ void MainWindow::fillbox(){
 void MainWindow::algorithm(){
 
 	try{
-		ServerConnection server("http://vanriel.eu/devcare/o.php");
+        ServerConnection server("http://vanriel.eu/devcare/dummy.php");
 
 		auto v = parsejson(server.httpGet());
 
@@ -62,4 +62,9 @@ void MainWindow::algorithm(){
 
 	fillbox();
 	fillpic();
+}
+
+void MainWindow::on_scanknop_clicked()
+{
+    algorithm();
 }

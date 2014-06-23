@@ -56,13 +56,13 @@ pair<vector<van_nodes>,vector<cor_gui> > parsejson(string str){
 	const Json::Value data = root["data"];
 	vector<van_nodes> fst;
 	for(unsigned i=0; i<data.size(); i++){
-		if(!data.isMember("s"))
+        /*if(!data.isMember("s"))
 			throw runtime_error("parsejson: root[data]["+to_string(i)+"]: missing \"s\"");
 		if(!data.isMember("d"))
 			throw runtime_error("parsejson: root[data]["+to_string(i)+"]: missing \"d\"");
 		if(!data.isMember("r"))
 			throw runtime_error("parsejson: root[data]["+to_string(i)+"]: missing \"r\"");
-		van_nodes tmp;
+        */van_nodes tmp;
 		tmp.mac_source      =  data[i]["s"].asString();
 		tmp.mac_destination =  data[i]["d"].asString();
 		tmp.power           = -data[i]["r"].asInt();
@@ -72,13 +72,13 @@ pair<vector<van_nodes>,vector<cor_gui> > parsejson(string str){
 	const Json::Value fixed = root["fixed"];
 	vector<cor_gui> snd;
 	for(unsigned i=0; i<fixed.size(); i++){
-		if(!data.isMember("a"))
+        /*if(!data.isMember("a"))
 			throw runtime_error("parsejson: root[fixed]["+to_string(i)+"]: missing \"a\"");
 		if(!data.isMember("x"))
 			throw runtime_error("parsejson: root[fixed]["+to_string(i)+"]: missing \"x\"");
 		if(!data.isMember("y"))
 			throw runtime_error("parsejson: root[fixed]["+to_string(i)+"]: missing \"y\"");
-		cor_gui tmp;
+        */cor_gui tmp;
 		tmp.mac = fixed[i]["a"].asString();
 		tmp.x   = fixed[i]["x"].asInt();
 		tmp.y   = fixed[i]["y"].asInt();

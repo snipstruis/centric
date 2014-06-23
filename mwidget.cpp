@@ -6,12 +6,12 @@ mwidget::mwidget(QWidget *parent) :
 }
 
 void mwidget::paintEvent(QPaintEvent *event){
-	QString x = "images/room.png";
+    QString x = "../centric/images/room.png";
 	QPixmap kamergrond(x),
 			punt(202,202);
 	punt.fill("transparent");
 	QPainter back(this),
-			fore(&punt);
+             fore(&punt);
 
 	//de punten tekenen op de pixmap
 	fore.setPen(Qt::black);

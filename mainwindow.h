@@ -22,7 +22,7 @@ private:
 	mwidget kamer;
 	Algo alg;
 	vaste_nodes no;
-	naar_gui out;
+    naar_gui out;
 
 	void algorithm();
 	void fillpic();
@@ -31,4 +31,5 @@ private:
 private slots:
 	void on_selector_currentTextChanged(const QString &arg1);
 
+    void on_scanknop_clicked();
 };
