@@ -54,7 +54,7 @@ void MainWindow::algorithm(){
 
 		out = alg.bereken(no, v.first);
 
-        kamer.setError(true);
+        kamer.setError(false);
 	}
 	catch(const std::runtime_error e){
 		cerr<<"exception: "<<e.what()<<endl;
